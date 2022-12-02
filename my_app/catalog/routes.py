@@ -102,7 +102,7 @@ def single_menu():
 
 
 #create multiple menu items
-@catalog.route('/create-menu', methods=['POST',])
+@catalog.route('/create-menus', methods=['POST',])
 def create_menu():
     import json
     data = json.loads(request.data)
@@ -127,9 +127,11 @@ def create_menu():
 def create_ticket():
     arrival = request.json.get('arrival')
     departed = request.json.get('departed')
+    new_arrival = datetime.strptime(arrival, "%Y-%m-%d %H:%M:%S")
+    new_departed = datetime.strptime(departed, "%Y-%m-%d %H:%M:%S")
     table_no = request.json.get('table_no')
 
-    ticket = CustomerTicket(arrival, departed, table_no)
+    ticket = CustomerTicket(new_arrival, new_departed, table_no)
 
     db.session.add(ticket)
     db.session.commit()

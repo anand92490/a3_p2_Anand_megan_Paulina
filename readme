@@ -26,7 +26,7 @@
     "price": 9.99
 }
 
-2. add multiple menu item - http://127.0.0.1:5000/create-menu
+2. add multiple menu item - http://127.0.0.1:5000/create-menus
 
 {
     "item1":
@@ -69,3 +69,20 @@
 4. method GET -  http://127.0.0.1:5000/show-waiters
 
 5. method GET - http://127.0.0.1:5000/show-menu
+
+6. method POST - http://127.0.0.1:5000/create-customer-ticket
+
+    - data 1
+
+{
+    "arrival" : "2022-02-04 12:00:00",
+    "departed" : "2022-02-04 1:00:00",
+    "table_no" : 1
+}
+
+    -   data2   
+{
+    "arrival" : "2022-02-04 1:15:00",
+    "departed" : "2022-02-04 2:00:00",
+    "table_no" : 3
+}
