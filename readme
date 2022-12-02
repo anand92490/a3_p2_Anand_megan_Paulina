@@ -65,3 +65,7 @@
     "last_name" : "Cena",
     "tax_number" : 9104331420
 }
+
+4. method GET -  http://127.0.0.1:5000/show-waiters
+
+5. method GET - http://127.0.0.1:5000/show-menu
