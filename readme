@@ -1,0 +1,67 @@
+0. Before you begin delete the "venv" folder and the database too if you wish to recreate the database
+
+1. Set up your own vertual environment for your server
+    python3 -m venv venv
+
+2. Activate your virtual environment 
+    source venv/bin/activate
+     - deactivate (to exit out of the flask app)
+
+3. Install the dependencies 
+    pip3 install -r requirements.txt 
+
+4. let the flask app know where the directory is located 
+    export FLASK_APP=app.py 
+
+5. Run the flask application 
+    flask run 
+     - Press CTRL+C to quit
+
+## data
+1. add single menu item - http://127.0.0.1:5000/single-menu
+
+ {
+    "item_name": "Fried rice",
+    "description": "Steamed rice fried with meat of your choice",
+    "price": 9.99
+}
+
+2. add multiple menu item - http://127.0.0.1:5000/create-menu
+
+{
+    "item1":
+    {
+    "item_name": "Fried rice",
+    "description": "Steamed rice fried with meat of your choice",
+    "price": 9.99
+    },
+
+  "item2":
+    {
+    "item_name": "Crispy Fied Chicken",
+    "description": "8 pieces, deep fried in oil coated in batter and 12 herbs and spices",
+    "price": 14.39
+    },
+
+    "item3":
+    {
+    "item_name": "Chowmein",
+    "description": "Stir fried chowmein noodles with meat of your choice",
+    "price": 10.69
+    },
+
+     "item4":
+    {
+    "item_name": "Briyani",
+    "description": "A vibrant mix of spices, rice and meat",
+    "price": 14.20
+    }
+}
+
+3. create waiter (sigle) - http://127.0.0.1:5000/create-waiter
+
+{
+    "first_name" : "John",
+    "last_name" : "Cena",
+    "tax_number" : 9104331420
+}
