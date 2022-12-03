@@ -102,7 +102,7 @@
     "arrival" : "2022-02-04 4:00:00",
     "departed" : "2022-02-04 5:00:00",
     "table_no" : 1,
-    "name" :  "Briyani"
+    "order" :  {"one": "Briyani ", "two": "Fried rice"}
 }
 
     - data 2   
