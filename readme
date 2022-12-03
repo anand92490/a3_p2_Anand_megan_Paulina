@@ -130,3 +130,21 @@
     "table_no" : 6,
     "order": {"two": "Briyani", "three": "Chowmein", "four": "Crispy Fied Chicken"}
 }
+
+8. POST method - http://127.0.0.1:5000/calculate-ticket-sum
+
+    - data 1
+{
+    "id" : 1
+    
+}
+
+    - data 2
+{
+    "id" : 2
+}
+    - data 3
+{
+    "id" : 44
+    
+}
