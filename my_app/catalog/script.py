@@ -6,7 +6,7 @@ Session = sessionmaker(bind = db)
 session = Session()
 
 waiter = Waiter("Lionel", "Messi", 1234587384)
-session.add(waiter)
+db.session.add(waiter)
 
 # tshirt, mug, hat, crowbar = (
 #     Item("SA T-Shirt", 10.99),
@@ -15,7 +15,7 @@ session.add(waiter)
 #     Item("SA Crowbar", 16.99),
 # )
 # session.add_all([tshirt, mug, hat, crowbar])
-session.commit()
+db.session.commit()
 
 # # create an order
 # order = Order("John Smith")

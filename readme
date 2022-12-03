@@ -26,7 +26,7 @@
     "price": 9.99
 }
 
-2. add multiple menu item - http://127.0.0.1:5000/create-menus
+2. add multiple menu item - method POST - http://127.0.0.1:5000/create-menus
 
 {
     "item1":
@@ -59,12 +59,32 @@
 }
 
 3. create waiter (sigle) - http://127.0.0.1:5000/create-waiter
-
+    - data 1
 {
     "first_name" : "John",
     "last_name" : "Cena",
     "tax_number" : 9104331420
 }
+    
+    - data 2
+
+{
+    "first_name" : "Anderson",
+    "last_name" : "Cooper",
+    "tax_number" : 4536453672
+}
+
+    - data 3
+
+{
+    "first_name" : "Donald",
+    "last_name" : "Trump",
+    "tax_number" : 4536245356
+}
+
+
+
+
 
 4. method GET -  http://127.0.0.1:5000/show-waiters
 
@@ -72,19 +92,41 @@
 
 6. method GET - http://127.0.0.1:5000/show-tickets
 
+
+
 7. method POST - http://127.0.0.1:5000/create-customer-ticket
 
     - data 1
 
 {
-    "arrival" : "2022-02-04 12:00:00",
-    "departed" : "2022-02-04 1:00:00",
-    "table_no" : 1
+    "arrival" : "2022-02-04 4:00:00",
+    "departed" : "2022-02-04 5:00:00",
+    "table_no" : 1,
+    "name" :  "Briyani"
 }
 
-    -   data2   
+    - data 2   
 {
-    "arrival" : "2022-02-04 1:15:00",
-    "departed" : "2022-02-04 2:00:00",
-    "table_no" : 3
+    "arrival" : "2022-02-04 3:00:00",
+    "departed" : "2022-02-04 4:00:00",
+    "table_no" : 4,
+    "name" :  "Fried rice"
+}
+
+    - data 3
+
+{
+    "arrival" : "2022-02-04 7:30:00",
+    "departed" : "2022-02-04 8:00:00",
+    "table_no" : 6,
+    "name" :  "Crispy Fried Chicken"
+}
+
+    - data 4
+
+{
+    "arrival" : "2022-02-04 8:00:00",
+    "departed" : "2022-02-04 9:00:00",
+    "table_no" : 6,
+    "name" :  "Chowmein"
 }
