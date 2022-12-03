@@ -102,7 +102,7 @@
     "arrival" : "2022-02-04 4:00:00",
     "departed" : "2022-02-04 5:00:00",
     "table_no" : 1,
-    "name" :  "Briyani"
+    "order" :  {"one": "Briyani ", "two": "Fried rice"}
 }
 
     - data 2   
@@ -110,7 +110,7 @@
     "arrival" : "2022-02-04 3:00:00",
     "departed" : "2022-02-04 4:00:00",
     "table_no" : 4,
-    "name" :  "Fried rice"
+    "order": {"one": "Fried rice", "two": "Briyani", "three": "Chowmein", "four": "Crispy Fied Chicken"}
 }
 
     - data 3
@@ -128,5 +128,5 @@
     "arrival" : "2022-02-04 8:00:00",
     "departed" : "2022-02-04 9:00:00",
     "table_no" : 6,
-    "name" :  "Chowmein"
+    "order": {"two": "Briyani", "three": "Chowmein", "four": "Crispy Fied Chicken"}
 }

@@ -126,73 +126,25 @@ def create_menu():
 @catalog.route('/create-customer-ticket', methods=['POST',])
 def create_ticket():
     import json
-    arrival = request.json.get('arrival')
-    departed = request.json.get('departed')
+
+    data = json.loads(request.data)
+    arrival = data['arrival']
+    departed = data['departed']
     new_arrival = datetime.strptime(arrival, "%Y-%m-%d %H:%M:%S")
     new_departed = datetime.strptime(departed, "%Y-%m-%d %H:%M:%S")
-    table_no = request.json.get('table_no')
-    name = request.json.get('name')
+    table_no = data['table_no']
     ticket = CustomerTicket(new_arrival, new_departed, table_no)
-    choice = Menu.query.filter_by(item_name=name).first()
-    if choice:
-        ticket.menu.append(choice)
-        db.session.add(ticket)
-        db.session.commit()
-    
-    # data = json.loads(request.data)
-    # arrival = data['arrival']
-    # departed = data['departed']
-    # new_arrival = datetime.strptime(arrival, "%Y-%m-%d %H:%M:%S")
-    # new_departed = datetime.strptime(departed, "%Y-%m-%d %H:%M:%S")
-    # table_no = data['table_no']
-    # opt1 = data['order'][0]
-    
-    # db.session.add(ticket)
-    # db.session.commit()
-        
-    
+    order = data['order']
+
+    for items in order:
+        choice = Menu.query.filter_by(item_name=order[items]).first()
+        if choice:
+            ticket.menu.append(choice)
+            
+    db.session.add(ticket)
+    db.session.commit()
     return 'Customer ticket created'
-        
-    
- 
-    
-    # choice = Menu.query.filter_by(item_name=name).first()
-    # if choice:
-    #     ticket.menu.append(choice)
-    #     db.session.add(ticket)
-    #     db.session.commit()
-    # choice_two = Menu.query.filter_by(item_name=name_two).first()
-    # if choice_two:
-    #     ticket.menu.append(choice_two)
-    #     db.session.add(ticket)
-    #     db.session.commit()
-    # for items in food:
-    #     key = food[items]
-    #     name = key['name']
-    #     choice = Menu.query.filter_by(item_name=name).first()
-    #     if choice:
-    #         ticket.menu.append(choice)
-    #         db.session.add(ticket)
-    #         db.session.commit()
-   
-    
-    
 
-#make order
-# @catalog.route('/create-order', methods=['POST',])
-# def order(ticket):
-#     orders = json.loads(request.data)
-
-#     for items in orders:
-
-#         key = orders[items]
-#         name = key['name']
-#         choice = Menu.query.filter_by(item_name=name), first()
-#         if choice:
-#             ticket.menu.append(choice)
-#             db.session.add(ticket)
-#             db.session.commit()
-#     return "Order completed"
 
 
         
