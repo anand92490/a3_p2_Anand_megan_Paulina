@@ -140,10 +140,39 @@ def create_ticket():
         choice = Menu.query.filter_by(item_name=order[items]).first()
         if choice:
             ticket.menu.append(choice)
-            
+
     db.session.add(ticket)
     db.session.commit()
     return 'Customer ticket created'
+
+#create sum of customer ticket
+@catalog.route('/calculate-ticket-sum', methods=['POST',])
+def calculate_ticket():
+    current_id = request.json.get('id')
+    sum = 0
+    st = "Food Purchase Receipt\n\n"
+    result = db.session.query(Menu).join(Menu.customer_ticket).filter(CustomerTicket.id==current_id).all()
+    if result:
+        for item in result:
+            st = st + str(item.item_name) + '   $' + str('%.2f' % item.price) + '\n'
+            sum = item.price + sum
+        sum = ('%.2f' % sum)
+        st = st + 'Your total for today is: $' + str(sum)
+        return st
+    return 'Ticket not found'
+
+@catalog.route('/calculate-revenue')
+def calculate_revenue():
+    tickets = db.session.query(Menu).all()
+    sum = 0
+    if tickets:
+        for item in tickets:
+            found = db.session.query(CustomerTicket).join(CustomerTicket.menu).filter(Menu.id==item.id).all()
+            sum += (item.price * len(found))
+        sum = ('%.2f' % sum)
+        sent= 'The total revenue of the restaurant is: $' + str(sum)
+        return sent
+    return 'Error, no calculation found'
 
 
 
