@@ -161,6 +161,19 @@ def calculate_ticket():
         return st
     return 'Ticket not found'
 
+@catalog.route('/calculate-revenue')
+def calculate_revenue():
+    tickets = db.session.query(Menu).all()
+    sum = 0
+    if tickets:
+        for item in tickets:
+            found = db.session.query(CustomerTicket).join(CustomerTicket.menu).filter(Menu.id==item.id).all()
+            sum += (item.price * len(found))
+        sum = ('%.2f' % sum)
+        sent= 'The total revenue of the restaurant is: $' + str(sum)
+        return sent
+    return 'Error, no calculation found'
+
 
 
         
