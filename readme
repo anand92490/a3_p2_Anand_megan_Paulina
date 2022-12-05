@@ -17,7 +17,7 @@
     flask run 
      - Press CTRL+C to quit
 
-## data
+ data
 1. add single menu item - http://127.0.0.1:5000/single-menu
 
  {
@@ -96,7 +96,7 @@
 
 7. method POST - http://127.0.0.1:5000/create-customer-ticket
 
-    - data 1
+    - data 1 (multiple menu item)
 
 {
     "arrival" : "2022-02-04 4:00:00",
@@ -113,7 +113,7 @@
     "order": {"one": "Fried rice", "two": "Briyani", "three": "Chowmein", "four": "Crispy Fied Chicken"}
 }
 
-    - data 3
+    - data 3 (single menu item)
 
 {
     "arrival" : "2022-02-04 7:30:00",
@@ -134,19 +134,17 @@
 8. POST method - http://127.0.0.1:5000/calculate-ticket-sum
 
     - data 1
-{
-    "id" : 1
-    
-}
 
-    - data 2
 {
     "id" : 2
 }
-    - data 3
+
+
+    - data 2
 {
-    "id" : 44
+    "id" : 5
     
 }
+
 
 9. method GET - http://127.0.0.1:5000/calculate-revenue
